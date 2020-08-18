@@ -1,7 +1,7 @@
 FROM python:3.7-slim as builder
 
 RUN apt-get update && apt-get install -yy \
-    build-essential libpq-dev libssl-dev libffi-dev python3-dev curl && \
+    build-essential libpq-dev libssl-dev libffi-dev python3-dev curl libxml2-dev libxslt-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --prefix="/dist/usr/local" --no-warn-script-location \
@@ -28,7 +28,7 @@ RUN cp /synapse/docker/start.py /dist/start.py && \
     chmod +x /dist/start.py
 
 # Copy riot web app into container
-COPY --from=vectorim/riot-web /app /dist/webapp
+# COPY --from=vectorim/riot-web /app /dist/webapp
 
 COPY rootfs/ /dist/
 
