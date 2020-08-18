@@ -1,7 +1,7 @@
 FROM python:3.7-slim as builder
 
 RUN apt-get update && apt-get install -yy \
-    build-essential libpq-dev libssl-dev libffi-dev python-dev curl && \
+    build-essential libpq-dev libssl-dev libffi-dev python3-dev curl && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --prefix="/dist/usr/local" --no-warn-script-location \
