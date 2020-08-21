@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -yy \
     build-essential libpq-dev libssl-dev libffi-dev python3-dev curl libxml2-dev libxslt-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install --prefix="/dist/usr/local" --extra-index-url "https://www.piwheels.org/simple" matrix-synapse
+RUN pip install --prefix="/dist/usr/local" --extra-index-url "https://www.piwheels.org/simple" psycopg2 matrix-synapse[all]
 
 COPY rootfs/ /dist/
 
